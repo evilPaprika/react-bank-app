@@ -1,0 +1,22 @@
+.owner-info__photo {
+    float: right;
+}
+
+.owner-info__header {
+    font-size: 20px;
+    margin: 0 0 15px 0;
+}
+
+.owner-info__phone {
+    color: gray;
+}
+
+.owner-info__site,
+.owner-info__phone {
+    margin: 0 20px 0 0;
+}
+
+.owner-info__company {
+    display: block;
+    margin: 20px 0 10px 0;
+}
