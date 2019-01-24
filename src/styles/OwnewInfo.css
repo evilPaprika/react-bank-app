@@ -20,3 +20,12 @@
     display: block;
     margin: 20px 0 10px 0;
 }
+
+@media screen and (max-width: 400px) {
+    .owner-info__photo {
+        float: none;
+        display: block;
+        min-width: 60%;
+        margin: 0 auto;
+    }
+}

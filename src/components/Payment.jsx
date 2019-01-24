@@ -4,6 +4,7 @@ import RequestPayment from "./payment/RequestPayment";
 import PayUsingCard from "./payment/PayUsingCard";
 import PayUsingOnlineBank from "./payment/PayUsingOnlineBank";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
+import "../styles/Payment.css";
 
 class Payment extends Component {
   state = {};
