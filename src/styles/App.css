@@ -1,10 +1,14 @@
 a {
     text-decoration: none;
     color: #4879ff;
+    user-select: none;
 }
 
 .link-selected {
     color: #666;
+    pointer-events: none;
+    cursor: default;
+    opacity: 0.8;
 }
 
 .box-wrapper {

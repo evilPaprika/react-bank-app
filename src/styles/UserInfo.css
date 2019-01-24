@@ -1,28 +1,28 @@
-.owner-info__photo {
+.user-info__photo {
     float: right;
 }
 
-.owner-info__header {
+.user-info__header {
     font-size: 20px;
     margin: 0 0 15px 0;
 }
 
-.owner-info__phone {
+.user-info__phone {
     color: gray;
 }
 
-.owner-info__site,
-.owner-info__phone {
+.user-info__site,
+.user-info__phone {
     margin: 0 20px 0 0;
 }
 
-.owner-info__company {
+.user-info__company {
     display: block;
     margin: 20px 0 10px 0;
 }
 
 @media screen and (max-width: 400px) {
-    .owner-info__photo {
+    .user-info__photo {
         float: none;
         display: block;
         min-width: 60%;
