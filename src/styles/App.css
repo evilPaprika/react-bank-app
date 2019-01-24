@@ -16,3 +16,20 @@ a {
     border: solid 1px rgb(201, 201, 201);
     border-radius: 2px;
 }
+
+input::placeholder {
+    color: rgb(172, 172, 172);
+    padding-left: 5px;
+}
+
+input {
+    border: none;
+    border-bottom: solid 1px rgb(121, 121, 121);
+    width: 200px;
+}
+
+label {
+    float: left;
+    font-weight: 700;
+    width: 150px;
+}
