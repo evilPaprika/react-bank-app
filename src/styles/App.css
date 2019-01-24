@@ -16,24 +16,51 @@ a {
     overflow: hidden;
     margin: 10px auto;
     padding: 16px 20px;
-    box-shadow: 0px 20px 50px -15px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 20px 10px -15px rgba(0, 0, 0, 0.25);
     border: solid 1px rgb(201, 201, 201);
     border-radius: 2px;
 }
 
 input::placeholder {
     color: rgb(172, 172, 172);
-    padding-left: 5px;
+}
+
+.input-option {
+    display: flex;
+    flex-wrap: wrap;
 }
 
 input {
+    height: 25px;
     border: none;
+    font-size: 100%;
     border-bottom: solid 1px rgb(121, 121, 121);
     width: 200px;
+    flex: 1;
+    max-width: 500px;
+    min-width: 200px;
+    outline: none;
+    text-indent: 10px;
+}
+
+input:focus {
+    background-color: rgba(155, 185, 219, 0.3);
 }
 
 label {
     float: left;
     font-weight: 700;
     width: 150px;
+}
+
+select {
+    border: none;
+    background-color: #11111100;
+    font-weight: 700;
+    user-select: none;
+    outline: none;
+}
+
+select:focus {
+    background-color: rgba(155, 185, 219, 0.3);
 }

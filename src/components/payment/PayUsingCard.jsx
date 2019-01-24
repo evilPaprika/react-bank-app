@@ -1,14 +1,54 @@
 import React, { Component } from "react";
+import "../../styles/PayUsingCard.css";
 
 class PayUsingCard extends Component {
   state = {};
   render() {
     return (
-      <div className="pay-card">
+      <span className="pay-card">
         <div className="pay-card__card">
-          <div className="pay-card__card-bg">card</div>
+          <div className="pay-card__card-bg">
+            <div className="pay-card__logos">
+              <img
+                src={require("../../images/mastercard_logo.png")}
+                alt="logo"
+                className="pay-card__logo"
+              />
+              <img
+                src={require("../../images/maestro_logo.png")}
+                alt="logo"
+                className="pay-card__logo"
+              />
+              <img
+                src={require("../../images/VISA_logo.png")}
+                alt="logo"
+                className="pay-card__logo"
+              />
+            </div>
+            <input
+              type="number"
+              name="card number"
+              id="card-number"
+              placeholder="Номер карты"
+              className="pay-card__card-number-input"
+            />
+            <input
+              type="string"
+              name="experation date"
+              id="experation-date"
+              placeholder="ММ/ГГ"
+              className="pay-card__small-input"
+            />
+            <input
+              type="number"
+              name="cvc"
+              id="cvc"
+              placeholder="CVC"
+              className="pay-card__small-input"
+            />
+          </div>
         </div>
-        <div className="pay-card__other-info">
+        <form className="pay-card__other-info">
           <label htmlFor="amount-of-money">Сумма</label>
           <input
             type="number"
@@ -32,8 +72,8 @@ class PayUsingCard extends Component {
           />
           <br />
           <button type="submit">Заплатить</button>
-        </div>
-      </div>
+        </form>
+      </span>
     );
   }
 }

@@ -1,6 +1,10 @@
 .navbar {
+    margin-bottom: 15px;
 }
-
+.payment-wrapper {
+    font-size: 110%;
+    line-height: 40px;
+}
 .navbar__choice {
     padding: 5px;
     border: solid 1px;
@@ -22,28 +26,21 @@
     margin: 0 10px 0 0;
 }
 
-.pay-card {
-    margin: 10px 0 0 0;
-    font-size: 120%;
-    line-height: 40px;
-}
-
-.pay-card__card,
-.pay-card__other-info {
-    min-width: 250px;
-    width: 45%;
+button {
     display: inline-block;
-    vertical-align: top;
+    padding: 0.35em 1.2em;
+    border: 0.1em solid #4879ff;
+    margin: 15px 0 0 0;
+    border-radius: 0.12em;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-weight: 500;
+    color: #4879ff;
+    text-align: center;
+    transition: all 0.2s;
 }
-
-.pay-card__card {
-    margin: 0 5% 0 0;
-}
-
-.pay-card__card-bg {
-    height: 160px;
-    max-width: 300px;
-    background-color: rgb(209, 209, 209);
-    border-radius: 10px;
-    box-shadow: 0px 10px 20px 10px rgba(0, 0, 0, 0.15);
+button:hover {
+    color: #000000;
+    background-color: #dde2d6;
+    border: 0.1em solid #000000;
 }

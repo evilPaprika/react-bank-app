@@ -1,0 +1,57 @@
+.pay-card {
+    margin: 30px auto 20px auto;
+    /* font-size: 110%; */
+    /* line-height: 40px; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.pay-card__card,
+.pay-card__other-info {
+    min-width: 250px;
+    width: 45%;
+}
+
+.pay-card__card {
+    margin: 0 5% 0 0;
+}
+
+.pay-card__card-bg {
+    height: 170px;
+    max-width: 300px;
+    background-color: #cccccc55;
+    border-radius: 6px;
+    box-shadow: 0px 8px 39px -1px rgba(0, 0, 0, 0.3);
+}
+
+.pay-card__logos {
+    display: flex;
+    height: 50px;
+    justify-content: right;
+    align-items: center;
+    flex-direction: row-reverse;
+}
+
+.pay-card__logo {
+    width: 30px;
+    margin: 10px;
+    height: auto;
+}
+
+.pay-card__logo:first {
+    margin-top: 15px;
+}
+
+.pay-card__card-number-input {
+    background-color: #cccccc00;
+    margin: 0 0 0 10px;
+    width: 220px;
+    display: block;
+}
+input.pay-card__small-input {
+    background-color: #cccccc00;
+    margin: 20px 10px 0 10px;
+    width: 50px;
+    min-width: 0;
+}

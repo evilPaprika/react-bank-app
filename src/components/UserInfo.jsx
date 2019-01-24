@@ -11,10 +11,10 @@ class UserInfo extends Component {
   }
 
   state = {
-    name: "Роберт Норман Росс",
-    phone: "+79193977777",
-    site: "www.bobross.com",
-    email: "info@bobross.com"
+    name: "",
+    phone: "",
+    site: "",
+    email: ""
   };
 
   render() {

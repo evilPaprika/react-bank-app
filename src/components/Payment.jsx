@@ -11,18 +11,23 @@ class Payment extends Component {
   render() {
     return (
       <BrowserRouter>
-        <div className="box-wrapper">
+        <section
+          className="box-wrapper"
+          style={{ position: "relative", zIndex: 1 }}
+        >
           <Navbar />
-          <Switch>
-            <Redirect exact from="/" to="/pay" />
-            <Route
-              path="/pay/using_online_bank"
-              component={PayUsingOnlineBank}
-            />
-            <Route path="/request_payment" component={RequestPayment} />
-            <Route path="/pay/using_card" component={PayUsingCard} />
-          </Switch>
-        </div>
+          <div className="payment-wrapper">
+            <Switch>
+              <Redirect exact from="/" to="/pay" />
+              <Route
+                path="/pay/using_online_bank"
+                component={PayUsingOnlineBank}
+              />
+              <Route path="/request_payment" component={RequestPayment} />
+              <Route path="/pay/using_card" component={PayUsingCard} />
+            </Switch>
+          </div>
+        </section>
       </BrowserRouter>
     );
   }
