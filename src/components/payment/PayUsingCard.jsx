@@ -35,8 +35,8 @@ class PayUsingCard extends Component {
             />
             <input
               type="text"
-              name="experation_date"
-              id="experation-date"
+              name="expiration_date"
+              id="expiration-date"
               placeholder="ММ/ГГ"
               pattern="^(0[1-9]|10|11|12)/[0-9]{2}$"
               className="pay-card__small-input"
@@ -85,17 +85,6 @@ class PayUsingCard extends Component {
       </form>
     );
   }
-
-  // handleClick = () => {
-  //   fetch("/card-payment", {
-  //     method: "POST",
-  //     headers: {
-  //       Accept: "application/json",
-  //       "Content-Type": "application/json"
-  //     },
-  //     body: JSON.stringify(this.state)
-  //   });
-  // };
 }
 
 export default PayUsingCard;

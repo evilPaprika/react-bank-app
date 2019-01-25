@@ -24,71 +24,28 @@ app.get("/api/user_info", (req, res) => {
     });
 });
 
-app.post("/card-payment", (req, res) => {
-    console.log(req.body);
-    const payment = new CardPayment(
-        Object.assign(req.body, { _id: new mongoose.Types.ObjectId() })
-    );
-    console.log(payment);
-    payment
-        .save()
-        .then(result => {
-            console.log(result);
-            res.status(201).json({
-                message: "Запрос был сохранен, и принят в обработку",
-                createdPayment: result
+function postHandlerTemplate(model) {
+    return (req, res) => {
+        console.log(req.body);
+        const payment = new model(
+            Object.assign(req.body, { _id: new mongoose.Types.ObjectId() })
+        );
+        payment
+            .save()
+            .then(result => {
+                res.status(201).json({
+                    message: "Запрос был сохранен, и принят в обработку",
+                    createdPayment: result
+                });
+            })
+            .catch(err => {
+                res.status(500).json({
+                    error: err
+                });
             });
-        })
-        .catch(err => {
-            console.log(err);
-            res.status(500).json({
-                error: err
-            });
-        });
-});
+    };
+}
 
-app.post("/online-bank-payment", (req, res) => {
-    // console.log(req.body);
-    const payment = new CardPayment(
-        Object.assign(req.body, { _id: new mongoose.Types.ObjectId() })
-    );
-    // console.log(payment);
-    payment
-        .save()
-        .then(result => {
-            // console.log(result);
-            res.status(201).json({
-                message: "Запрос был сохранен, и принят в обработку",
-                createdPayment: result
-            });
-        })
-        .catch(err => {
-            console.log(err);
-            res.status(500).json({
-                error: err
-            });
-        });
-});
-
-app.post("/request-payment", (req, res) => {
-    // console.log(req.body);
-    const payment = new CardPayment(
-        Object.assign(req.body, { _id: new mongoose.Types.ObjectId() })
-    );
-    // console.log(payment);
-    payment
-        .save()
-        .then(result => {
-            // console.log(result);
-            res.status(201).json({
-                message: "Запрос был сохранен, и принят в обработку",
-                createdPayment: result
-            });
-        })
-        .catch(err => {
-            console.log(err);
-            res.status(500).json({
-                error: err
-            });
-        });
-});
+app.post("/card-payment", postHandlerTemplate(CardPayment));
+app.post("/online-bank-payment", postHandlerTemplate(OnlineBankPayment));
+app.post("/request-payment", postHandlerTemplate(RequestPayment));
