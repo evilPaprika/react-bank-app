@@ -7,7 +7,7 @@ class PayUsingOnlineBank extends Component {
         <header>
           <strong>Сформируйте платежку и загрузите её в свой банк</strong>
         </header>
-        <form action="/online-bank-payment" method="POST">
+        <form action="/api/online-bank-payment" method="POST">
           <div className="input-option">
             <label htmlFor="from">От&nbsp;кого</label>
             <input

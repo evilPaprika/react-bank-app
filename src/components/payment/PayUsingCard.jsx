@@ -4,7 +4,7 @@ import "../../styles/PayUsingCard.css";
 class PayUsingCard extends Component {
   render() {
     return (
-      <form className="pay-card" action="/card-payment" method="POST">
+      <form className="pay-card" action="/api/card-payment" method="POST">
         <div className="pay-card__card">
           <div className="pay-card__card-bg">
             <div className="pay-card__logos">

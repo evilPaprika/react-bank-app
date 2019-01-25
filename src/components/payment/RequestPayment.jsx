@@ -18,7 +18,7 @@ class RequestPayment extends Component {
             интернет-банке
           </strong>
         </header>
-        <form action="/request-payment" method="POST">
+        <form action="/api/request-payment" method="POST">
           <div className="input-option">
             <label htmlFor="recievers-inn">ИНН&nbsp;получателя</label>
             <input
