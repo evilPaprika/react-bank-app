@@ -53,7 +53,7 @@ class PayUsingOnlineBank extends Component {
           </div>
           <div className="input-option">
             <label>&nbsp;</label>
-            <select>
+            <select name="nds">
               <option value="0">Без НДС</option>
               <option value="10">НДС 10%</option>
               <option value="18">НДС 18%</option>
