@@ -10,28 +10,45 @@ class PayUsingOnlineBank extends Component {
         <form>
           <div className="input-option">
             <label htmlFor="from">От&nbsp;кого</label>
-            <input type="string" name="from whom" id="from" placeholder="ИНН" />
+            <input
+              type="text"
+              name="from whom"
+              id="from"
+              placeholder="ИНН (12 цифр)"
+              pattern="^\d{12}$"
+              required
+            />
           </div>
           <div className="input-option">
             <label htmlFor="comment">БИК</label>
-            <input type="number" name="bik" id="bik" placeholder="Номер БИК" />
+            <input
+              type="text"
+              name="bik"
+              id="bik"
+              pattern="^\d{9}$"
+              placeholder="Номер БИК (9 цифр)"
+              required
+            />
           </div>
           <div className="input-option">
             <label htmlFor="account-number">Номер&nbsp;счёта</label>
             <input
-              type="number"
+              type="text"
               name="Account number"
               id="account-number"
-              placeholder="Номер счёта"
+              placeholder="Номер счёта (20 цифр)"
+              pattern="^\d{20}$"
+              required
             />
           </div>
           <div className="input-option">
             <label htmlFor="product-name">За&nbsp;что</label>
             <input
-              type="string"
+              type="text"
               name="Product name"
               id="product-name"
               placeholder="Название продукта"
+              required
             />
           </div>
           <div className="input-option">
@@ -45,11 +62,13 @@ class PayUsingOnlineBank extends Component {
           <div className="input-option">
             <label htmlFor="amount">Сколько</label>
             <input
-              type="number"
+              type="text"
               name="amount"
               id="amount"
-              placeholder="Сколько"
+              placeholder="от 1 000 до 75 000₽"
               style={{ maxWidth: "250px" }}
+              pattern="^([1-8][0-9]{3}|9[0-8][0-9]{2}|99[0-8][0-9]|999[0-9]|[1-6][0-9]{4}|7[0-4][0-9]{3}|75000)$"
+              required
             />
           </div>
           <button type="submit">Заплатить</button>

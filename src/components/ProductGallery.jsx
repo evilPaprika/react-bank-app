@@ -87,7 +87,7 @@ class ProductGallery extends Component {
 const Products = ({ products }) => (
   <>
     {products.slice(0, 3).map(product => (
-      <div className="product">
+      <div className="product" key={product.name}>
         <img src={product.picure} alt="product picture" />
         <br />
         <strong slyle={{ display: "block" }}>{product.name}</strong>

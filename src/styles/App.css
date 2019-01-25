@@ -47,6 +47,14 @@ input:focus {
     background-color: rgba(155, 185, 219, 0.3);
 }
 
+input:not(:focus):invalid {
+    background-color: rgba(219, 155, 155, 0.2);
+}
+
+input:not(:focus):valid {
+    background-color: rgba(179, 219, 155, 0.3);
+}
+
 label {
     float: left;
     font-weight: 700;

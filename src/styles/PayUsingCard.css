@@ -50,8 +50,8 @@
     display: block;
 }
 input.pay-card__small-input {
-    background-color: #cccccc00;
+    /* background-color: #cccccc00; */
     margin: 20px 10px 0 10px;
-    width: 50px;
+    width: 65px;
     min-width: 0;
 }
