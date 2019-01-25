@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import InputMask from "react-input-mask";
 
 class PayUsingOnlineBank extends Component {
   render() {
@@ -10,34 +11,37 @@ class PayUsingOnlineBank extends Component {
         <form action="/api/online-bank-payment" method="POST">
           <div className="input-option">
             <label htmlFor="from">От&nbsp;кого</label>
-            <input
+            <InputMask
               type="text"
               name="inn"
               id="from"
               placeholder="ИНН (12 цифр)"
+              mask="999999999999"
               pattern="^\d{12}$"
               required
             />
           </div>
           <div className="input-option">
-            <label htmlFor="comment">БИК</label>
-            <input
+            <label htmlFor="bik">БИК</label>
+            <InputMask
               type="text"
               name="bik"
               id="bik"
               pattern="^\d{9}$"
               placeholder="Номер БИК (9 цифр)"
+              mask="999999999"
               required
             />
           </div>
           <div className="input-option">
             <label htmlFor="account-number">Номер&nbsp;счёта</label>
-            <input
+            <InputMask
               type="text"
               name="account_number"
               id="account-number"
               placeholder="Номер счёта (20 цифр)"
               pattern="^\d{20}$"
+              mask="99999999999999999999"
               required
             />
           </div>

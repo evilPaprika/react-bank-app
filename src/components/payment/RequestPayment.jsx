@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import userInfo from "../../index";
+import InputMask from "react-input-mask";
 
 class RequestPayment extends Component {
   componentDidMount() {
@@ -21,34 +22,37 @@ class RequestPayment extends Component {
         <form action="/api/request-payment" method="POST">
           <div className="input-option">
             <label htmlFor="recievers-inn">ИНН&nbsp;получателя</label>
-            <input
+            <InputMask
               type="text"
               name="recievers_inn"
               id="recievers-inn"
               placeholder="ИНН получателя (12 цифр)"
+              mask="999999999999"
               pattern="^\d{12}$"
               required
             />
           </div>
           <div className="input-option">
-            <label htmlFor="comment">БИК</label>
-            <input
+            <label htmlFor="bik">БИК</label>
+            <InputMask
               type="text"
               name="bik"
               id="bik"
               pattern="^\d{9}$"
+              mask="999999999"
               placeholder="Номер БИК (9 цифр)"
               required
             />
           </div>
           <div className="input-option">
             <label htmlFor="account-number">Номер счёта</label>
-            <input
+            <InputMask
               type="text"
               name="account_number"
               id="account-number"
               placeholder="Номер счёта (20 цифр)"
               pattern="^\d{20}$"
+              mask="99999999999999999999"
               required
             />
           </div>
@@ -84,12 +88,13 @@ class RequestPayment extends Component {
           </div>
           <div className="input-option">
             <label htmlFor="phone-number">Телефон</label>
-            <input
+            <InputMask
               type="tel"
               name="phone"
               id="phone-number"
               placeholder="Ваш номер телефона"
-              pattern="^\d{11}$"
+              pattern="^\+7 \d{3} \d{3} \d{2} \d{2}$"
+              mask="+7 999 999 99 99"
               style={{ maxWidth: "250px" }}
             />
           </div>

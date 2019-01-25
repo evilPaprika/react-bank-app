@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "../../styles/PayUsingCard.css";
+import InputMask from "react-input-mask";
 
 class PayUsingCard extends Component {
   render() {
@@ -24,8 +25,9 @@ class PayUsingCard extends Component {
                 className="pay-card__logo"
               />
             </div>
-            <input
-              pattern="^\d{16}$"
+            <InputMask
+              mask="9999 9999 9999 9999"
+              pattern="^\d{4} \d{4} \d{4} \d{4}$"
               type="text"
               name="card_number"
               id="card-number"
@@ -33,7 +35,8 @@ class PayUsingCard extends Component {
               className="pay-card__card-number-input"
               required
             />
-            <input
+            <InputMask
+              mask="99/99"
               type="text"
               name="expiration_date"
               id="expiration-date"
@@ -42,7 +45,8 @@ class PayUsingCard extends Component {
               className="pay-card__small-input"
               required
             />
-            <input
+            <InputMask
+              mask="999"
               type="text"
               name="cvc"
               id="cvc"
