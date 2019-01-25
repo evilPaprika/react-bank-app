@@ -7,7 +7,8 @@ const paymentSchema = mongoose.Schema({
     account_number: String,
     product_name: String,
     nds: Number,
-    amount_of_money: Number
+    amount_of_money: Number,
+    trusted: Boolean
 });
 
 module.exports = mongoose.model("OnlineBankPayment", paymentSchema);

@@ -9,7 +9,8 @@ const paymentSchema = mongoose.Schema({
     nds: Number,
     amount_of_money: Number,
     phone: String,
-    email: String
+    email: String,
+    trusted: Boolean
 });
 
 module.exports = mongoose.model("RequestPayment", paymentSchema);

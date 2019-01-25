@@ -58,7 +58,10 @@ function postHandlerTemplate(model) {
     return (req, res) => {
         console.log(req.body);
         const payment = new model(
-            Object.assign(req.body, { _id: new mongoose.Types.ObjectId() })
+            Object.assign(req.body, {
+                _id: new mongoose.Types.ObjectId(),
+                trusted: true
+            })
         );
         console.log(validationResult(req).array());
         new Promise((resolve, reject) => {

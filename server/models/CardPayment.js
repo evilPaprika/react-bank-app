@@ -7,7 +7,8 @@ const paymentSchema = mongoose.Schema({
     cvc: Number,
     amount_of_money: Number,
     comment: String,
-    email: String
+    email: String,
+    trusted: Boolean
 });
 
 module.exports = mongoose.model("CardPayment", paymentSchema);
