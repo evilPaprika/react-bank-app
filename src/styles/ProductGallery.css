@@ -1,0 +1,16 @@
+.product {
+    min-width: 250px;
+    text-align: center;
+    margin-top: auto;
+}
+
+.product > img {
+    max-height: 220px;
+}
+
+.products {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}

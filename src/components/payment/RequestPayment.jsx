@@ -90,6 +90,7 @@ class RequestPayment extends Component {
               style={{ maxWidth: "250px" }}
             />
           </div>
+          <button type="submit">Заплатить</button>
         </form>
       </div>
     );

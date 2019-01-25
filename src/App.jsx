@@ -3,6 +3,7 @@ import "./styles/App.css";
 import UserInfo from "./components/UserInfo";
 import Payment from "./components/Payment";
 import ProductGallery from "./components/ProductGallery";
+import Footer from "./components/Footer";
 
 class App extends Component {
   render() {
@@ -11,6 +12,7 @@ class App extends Component {
         <UserInfo />
         <Payment />
         <ProductGallery />
+        <Footer />
       </div>
     );
   }

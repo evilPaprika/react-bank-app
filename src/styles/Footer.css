@@ -1,0 +1,15 @@
+.footer-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.share {
+    align-items: center;
+    display: flex;
+}
+
+.share__some-network {
+    margin-left: 20px;
+}

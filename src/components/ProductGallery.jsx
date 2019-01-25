@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "../styles/ProductGallery.css";
 
 function shuffle(a) {
   var j, x, i;
@@ -12,6 +13,13 @@ function shuffle(a) {
 }
 
 class ProductGallery extends Component {
+  componentDidMount() {
+    fetch("/api/user_info")
+      .then(res => res.json())
+      .then(res => this.setState(res))
+      .catch(err => console.log(err));
+  }
+
   state = {
     products: [
       {
@@ -28,26 +36,66 @@ class ProductGallery extends Component {
         picure: require("../images/products/R6402-1.jpg"),
         name: "2 inch Background Brush",
         price: "Our Price: $19.49"
+      },
+      {
+        picure: require("../images/products/R6520-1.jpg"),
+        name: "Screen For Thinner Can",
+        price: "Our Price: $8.29"
+      },
+      {
+        picure: require("../images/products/R6245-1.jpg"),
+        name: "Brush Cleaner/Conditioner 4 oz",
+        price: "Our Price: $6.99"
+      },
+      {
+        picure: require("../images/products/R100-1.jpg"),
+        name: "Best of Joy of Painting",
+        price: "Our Price: $26.99"
+      },
+      {
+        picure: require("../images/products/RTT01-1.jpg"),
+        name: "Ross Tabletop Easel",
+        price: "Our Price: $111.99"
       }
-    ]
+    ],
+    name: "предприниматель"
   };
 
   componentWillMount() {
     shuffle(this.state.products);
   }
 
+  componentDidMount() {
+    fetch("/api/user_info")
+      .then(res => res.json())
+      .then(res => this.setState(res))
+      .catch(err => console.log(err));
+  }
+
   render() {
-    const ToRender = this.state.products.map(e => (
-      <article>
-        <div>
-          <img src={e.picure} alt="add image" />
+    return (
+      <section className="box-wrapper">
+        <h3>{this.state.name} предоставляет продукты</h3>
+        <div className="products">
+          <Products products={this.state.products} />
         </div>
-        <h6>{e.name}</h6>
-        <span>{e.price}</span>
-      </article>
-    ));
-    return <section>{ToRender}</section>;
+      </section>
+    );
   }
 }
+
+const Products = ({ products }) => (
+  <>
+    {products.slice(0, 3).map(product => (
+      <div className="product">
+        <img src={product.picure} alt="product picture" />
+        <br />
+        <strong slyle={{ display: "block" }}>{product.name}</strong>
+        <br />
+        <span slyle={{ display: "block" }}>{product.price}</span>
+      </div>
+    ))}
+  </>
+);
 
 export default ProductGallery;
