@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "../styles/ProductGallery.css";
+import userInfo from "../index";
 
 function shuffle(a) {
   var j, x, i;
@@ -13,13 +14,6 @@ function shuffle(a) {
 }
 
 class ProductGallery extends Component {
-  componentDidMount() {
-    fetch("/api/user_info")
-      .then(res => res.json())
-      .then(res => this.setState(res))
-      .catch(err => console.log(err));
-  }
-
   state = {
     products: [
       {
@@ -66,10 +60,7 @@ class ProductGallery extends Component {
   }
 
   componentDidMount() {
-    fetch("/api/user_info")
-      .then(res => res.json())
-      .then(res => this.setState(res))
-      .catch(err => console.log(err));
+    this.setState(userInfo);
   }
 
   render() {
@@ -88,7 +79,7 @@ const Products = ({ products }) => (
   <>
     {products.slice(0, 3).map(product => (
       <div className="product" key={product.name}>
-        <img src={product.picure} alt="product picture" />
+        <img src={product.picure} alt="product" />
         <br />
         <strong slyle={{ display: "block" }}>{product.name}</strong>
         <br />

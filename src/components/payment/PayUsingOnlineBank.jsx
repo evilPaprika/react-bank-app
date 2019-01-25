@@ -7,12 +7,12 @@ class PayUsingOnlineBank extends Component {
         <header>
           <strong>Сформируйте платежку и загрузите её в свой банк</strong>
         </header>
-        <form>
+        <form action="/online-bank-payment" method="POST">
           <div className="input-option">
             <label htmlFor="from">От&nbsp;кого</label>
             <input
               type="text"
-              name="from whom"
+              name="inn"
               id="from"
               placeholder="ИНН (12 цифр)"
               pattern="^\d{12}$"
@@ -34,7 +34,7 @@ class PayUsingOnlineBank extends Component {
             <label htmlFor="account-number">Номер&nbsp;счёта</label>
             <input
               type="text"
-              name="Account number"
+              name="account_number"
               id="account-number"
               placeholder="Номер счёта (20 цифр)"
               pattern="^\d{20}$"
@@ -45,7 +45,7 @@ class PayUsingOnlineBank extends Component {
             <label htmlFor="product-name">За&nbsp;что</label>
             <input
               type="text"
-              name="Product name"
+              name="product_name"
               id="product-name"
               placeholder="Название продукта"
               required
@@ -63,7 +63,7 @@ class PayUsingOnlineBank extends Component {
             <label htmlFor="amount">Сколько</label>
             <input
               type="text"
-              name="amount"
+              name="amount_of_money"
               id="amount"
               placeholder="от 1 000 до 75 000₽"
               style={{ maxWidth: "250px" }}

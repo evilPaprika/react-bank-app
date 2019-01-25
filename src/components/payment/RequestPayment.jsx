@@ -1,11 +1,9 @@
 import React, { Component } from "react";
+import userInfo from "../../index";
 
 class RequestPayment extends Component {
   componentDidMount() {
-    fetch("/api/user_info")
-      .then(res => res.json())
-      .then(res => this.setState(res))
-      .catch(err => console.log(err));
+    this.setState(userInfo);
   }
 
   state = {
@@ -20,12 +18,12 @@ class RequestPayment extends Component {
             интернет-банке
           </strong>
         </header>
-        <form>
+        <form action="/request-payment" method="POST">
           <div className="input-option">
             <label htmlFor="recievers-inn">ИНН&nbsp;получателя</label>
             <input
               type="text"
-              name="recievers-inn"
+              name="recievers_inn"
               id="recievers-inn"
               placeholder="ИНН получателя (12 цифр)"
               pattern="^\d{12}$"
@@ -47,7 +45,7 @@ class RequestPayment extends Component {
             <label htmlFor="account-number">Номер счёта</label>
             <input
               type="text"
-              name="Account number"
+              name="account_number"
               id="account-number"
               placeholder="Номер счёта (20 цифр)"
               pattern="^\d{20}$"
@@ -58,7 +56,7 @@ class RequestPayment extends Component {
             <label htmlFor="product-name">За что</label>
             <input
               type="text"
-              name="Product name"
+              name="product_name"
               id="product-name"
               placeholder="Название продукта"
               required
@@ -66,7 +64,7 @@ class RequestPayment extends Component {
           </div>
           <div className="input-option">
             <label>&nbsp;</label>
-            <select>
+            <select name="nds">
               <option value="0">Без НДС</option>
               <option value="10">НДС 10%</option>
               <option value="18">НДС 18%</option>
@@ -76,7 +74,7 @@ class RequestPayment extends Component {
             <label htmlFor="amount">Сколько</label>
             <input
               type="text"
-              name="amount"
+              name="amount_of_money"
               id="amount"
               placeholder="от 1 000 до 75 000₽"
               style={{ maxWidth: "250px" }}
@@ -88,9 +86,10 @@ class RequestPayment extends Component {
             <label htmlFor="phone-number">Телефон</label>
             <input
               type="tel"
-              name="phone-number"
+              name="phone"
               id="phone-number"
               placeholder="Ваш номер телефона"
+              pattern="^\d{11}$"
               style={{ maxWidth: "250px" }}
             />
           </div>
@@ -102,6 +101,7 @@ class RequestPayment extends Component {
               id="client-email"
               placeholder="Для квитанций об оплате"
               style={{ maxWidth: "250px" }}
+              pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
             />
           </div>
           <button type="submit">Заплатить</button>

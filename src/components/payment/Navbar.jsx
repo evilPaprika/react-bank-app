@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter, Route, NavLink, Redirect } from "react-router-dom";
+import { Route, NavLink, Redirect } from "react-router-dom";
 
 class Navbar extends Component {
   state = {

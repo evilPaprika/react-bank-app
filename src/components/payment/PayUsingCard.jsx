@@ -2,10 +2,9 @@ import React, { Component } from "react";
 import "../../styles/PayUsingCard.css";
 
 class PayUsingCard extends Component {
-  state = {};
   render() {
     return (
-      <form className="pay-card">
+      <form className="pay-card" action="/card-payment" method="POST">
         <div className="pay-card__card">
           <div className="pay-card__card-bg">
             <div className="pay-card__logos">
@@ -28,7 +27,7 @@ class PayUsingCard extends Component {
             <input
               pattern="^\d{16}$"
               type="text"
-              name="card number"
+              name="card_number"
               id="card-number"
               placeholder="Номер карты"
               className="pay-card__card-number-input"
@@ -36,7 +35,7 @@ class PayUsingCard extends Component {
             />
             <input
               type="text"
-              name="experation date"
+              name="experation_date"
               id="experation-date"
               placeholder="ММ/ГГ"
               pattern="^(0[1-9]|10|11|12)/[0-9]{2}$"
@@ -58,7 +57,7 @@ class PayUsingCard extends Component {
           <label htmlFor="amount-of-money">Сумма</label>
           <input
             type="text"
-            name="amount of money"
+            name="amount_of_money"
             id="amount-of-money"
             pattern="^([1-8][0-9]{3}|9[0-8][0-9]{2}|99[0-8][0-9]|999[0-9]|[1-6][0-9]{4}|7[0-4][0-9]{3}|75000)$"
             placeholder="от 1 000 до 75 000₽"
@@ -86,6 +85,17 @@ class PayUsingCard extends Component {
       </form>
     );
   }
+
+  // handleClick = () => {
+  //   fetch("/card-payment", {
+  //     method: "POST",
+  //     headers: {
+  //       Accept: "application/json",
+  //       "Content-Type": "application/json"
+  //     },
+  //     body: JSON.stringify(this.state)
+  //   });
+  // };
 }
 
 export default PayUsingCard;

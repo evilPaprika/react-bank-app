@@ -1,13 +1,11 @@
 import React, { Component } from "react";
 import userPhoto from "../images/BobRoss.jpeg";
 import "../styles/UserInfo.css";
+import userInfo from "../index";
 
 class UserInfo extends Component {
   componentDidMount() {
-    fetch("/api/user_info")
-      .then(res => res.json())
-      .then(res => this.setState(res))
-      .catch(err => console.log(err));
+    this.setState(userInfo);
   }
 
   state = {
