@@ -137,15 +137,23 @@ class AdminPanel extends Component {
           {Object.values(entry)
             .slice(1, -1)
             .map(cell => (
-              <span className="table__cell">{cell.toString()}</span>
+              <span
+                className={"table__cell " + (!entry.trusted ? "untrusted" : "")}
+              >
+                {cell.toString()}
+              </span>
             ))}
-          <button
-            onClick={() => this.makeUntrusted(entry._id)}
-            className="table__cell"
-          >
-            {" "}
-            Небезопасный платеж{" "}
-          </button>
+          {entry.trusted ? (
+            <button
+              onClick={() => this.makeUntrusted(entry._id)}
+              className="table__cell"
+            >
+              {" "}
+              Небезопасный платеж{" "}
+            </button>
+          ) : (
+            " "
+          )}
         </div>
       ))}
     </>

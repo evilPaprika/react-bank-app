@@ -46,3 +46,7 @@
     position: relative;
     top: -3px;
 }
+
+.untrusted {
+    background-color: rgba(255, 0, 0, 0.466);
+}
