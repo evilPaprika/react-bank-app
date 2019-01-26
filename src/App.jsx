@@ -4,15 +4,29 @@ import UserInfo from "./components/UserInfo";
 import Payment from "./components/Payment";
 import ProductGallery from "./components/ProductGallery";
 import Footer from "./components/Footer";
+import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
+import AdminPanel from "./components/AdminPanel";
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <UserInfo />
-        <Payment />
-        <ProductGallery />
-        <Footer />
+      <div>
+        <BrowserRouter>
+          <Switch>
+            <Route path="/admin-panel" component={AdminPanel} />
+            <Route
+              path="/"
+              component={() => (
+                <div>
+                  <UserInfo />
+                  <Payment />
+                  <ProductGallery />
+                  <Footer />
+                </div>
+              )}
+            />
+          </Switch>
+        </BrowserRouter>
       </div>
     );
   }

@@ -8,7 +8,9 @@ mongoose.connect(
     "mongodb+srv://bobross:bobross@bank-app-cgofe.mongodb.net/payments-test?retryWrites=true"
 );
 app.use(function(req, res, next) {
-    console.log((req && req.method) + ":\n" + (req && req.body));
+    console.log(
+        (req && req.method) + ":\n" + (req && req.body) + " " + req.route
+    );
     next();
 });
 app.use(require("./routes/post"));

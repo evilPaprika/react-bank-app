@@ -30,7 +30,7 @@ button {
     display: inline-block;
     padding: 0.35em 1.2em;
     border: 0.1em solid #4879ff;
-    margin: 15px 0 0 0;
+    /* margin: 15px 0 0 0; */
     border-radius: 0.12em;
     box-sizing: border-box;
     text-decoration: none;

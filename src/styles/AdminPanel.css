@@ -1,0 +1,20 @@
+.table {
+    display: table;
+    border-collapse: collapse;
+    margin: 30px auto 0 auto;
+}
+
+.row {
+    display: table-row;
+}
+
+.cell {
+    display: table-cell;
+    text-align: center;
+    padding: 2px 10px;
+    border: 1px solid #ccc;
+}
+
+.key {
+    background-color: #4879ff4f;
+}
