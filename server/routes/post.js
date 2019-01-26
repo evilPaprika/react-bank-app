@@ -109,14 +109,14 @@ router.post(
         res.attachment("ticket.txt");
         const s = new Readable();
         s._read = () => {};
-        s.push("Чек онлайн банка\n\n");
-        s.push(`ИНН: ${req.body.inn}\n`);
-        s.push(`БИК: ${req.body.bik}\n`);
-        s.push(`Номер аккаунта: ${req.body.account_number}\n`);
-        s.push(`НДС: ${req.body.nds}%\n`);
-        s.push(`Название товара: ${req.body.product_name}\n\n`);
+        s.push("Чек онлайн банка\r\n\r\n");
+        s.push(`ИНН: ${req.body.inn}\r\n`);
+        s.push(`БИК: ${req.body.bik}\r\n`);
+        s.push(`Номер аккаунта: ${req.body.account_number}\r\n`);
+        s.push(`НДС: ${req.body.nds}%\r\n`);
+        s.push(`Название товара: ${req.body.product_name}\r\n\r\n`);
         s.push(`Cумма к оплате: ${req.body.amount_of_money}₽`);
-        s.push(`             Подпись:_________\n`);
+        s.push(`             Подпись:_________\r\n`);
         s.push(null);
         s.pipe(res).on("finish", () => {
             res.end();
