@@ -6,6 +6,7 @@ class AdminPanel extends Component {
     super(props);
     this.updateInputValue = this.updateInputValue.bind(this);
     this.RenderSort = this.RenderSort.bind(this);
+    this.RenderFilter = this.RenderFilter.bind(this);
     this.RenderTable = this.RenderTable.bind(this);
     this.RenderCardPayments = this.RenderCardPayments.bind(this);
     this.RenderRequestedPayments = this.RenderRequestedPayments.bind(this);
@@ -33,7 +34,7 @@ class AdminPanel extends Component {
 
   RenderFilter(e) {
     e.preventDefault();
-    this.state.additionalParams = `?filter=${this.state.filter}&filter_field=${
+    this.state.additionalParams = `?filter=${this.state.filter}&field=${
       this.state.filter_field
     }`;
     this.RenderTable();
@@ -55,45 +56,57 @@ class AdminPanel extends Component {
   render() {
     return (
       <div>
-        <button onClick={this.RenderCardPayments}>Платежи по картам</button>
-        <button onClick={this.RenderRequestedPayments}>
-          Запрошенные платежи
-        </button>
-        <form onSubmit={this.RenderSort}>
-          <input
-            value={this.state.inputValue}
-            onChange={evt => this.updateInputValue(evt)}
-            placeholder="Поле"
-            id="sort_field"
-            required
-          />
-          <input
-            value={this.state.inputValue}
-            onChange={evt => this.updateInputValue(evt)}
-            placeholder="Направление"
-            pattern="^(asc)|(desc)$"
-            id="sort_type"
-            required
-          />
-          <button type="submit">Сортировать</button>
-        </form>
-        <form onSubmit={this.RenderSort}>
-          <input
-            value={this.state.inputValue}
-            onChange={evt => this.updateInputValue(evt)}
-            placeholder="Поле"
-            id="filter_field"
-            required
-          />
-          <input
-            value={this.state.inputValue}
-            onChange={evt => this.updateInputValue(evt)}
-            placeholder="Строка"
-            id="filter"
-            required
-          />
-          <button type="submit">Сортировать</button>
-        </form>
+        <div className="navigation">
+          <button
+            className="navigation__button"
+            onClick={this.RenderCardPayments}
+          >
+            Платежи по картам
+          </button>
+          <button
+            className="navigation__button"
+            onClick={this.RenderRequestedPayments}
+          >
+            Запрошенные платежи
+          </button>
+          <div className="navigation__forms">
+            <form className="navigation__form" onSubmit={this.RenderSort}>
+              <input
+                value={this.state.inputValue}
+                onChange={evt => this.updateInputValue(evt)}
+                placeholder="Поле"
+                id="sort_field"
+                required
+              />
+              <input
+                value={this.state.inputValue}
+                onChange={evt => this.updateInputValue(evt)}
+                placeholder="Направление"
+                pattern="^(asc)|(desc)$"
+                id="sort_type"
+                required
+              />
+              <button type="submit">Сортировать</button>
+            </form>
+            <form className="navigation__form" onSubmit={this.RenderFilter}>
+              <input
+                value={this.state.inputValue}
+                onChange={evt => this.updateInputValue(evt)}
+                placeholder="Поле"
+                id="filter_field"
+                required
+              />
+              <input
+                value={this.state.inputValue}
+                onChange={evt => this.updateInputValue(evt)}
+                placeholder="Строка"
+                id="filter"
+                required
+              />
+              <button type="submit">Отфильтровать</button>
+            </form>
+          </div>
+        </div>
         {this.state.view.length > 0 ? (
           <div className="table">
             <this.TableHeader entry={this.state.view[0]} />{" "}
@@ -106,25 +119,29 @@ class AdminPanel extends Component {
     );
   }
   TableHeader = ({ entry }) => (
-    <div className="row">
-      {Object.keys(entry).map(key => (
-        <span className="key cell" key={key}>
-          {key}
-        </span>
-      ))}
+    <div className="table__row">
+      {Object.keys(entry)
+        .slice(1, -1)
+        .map(key => (
+          <span className="table__key table__cell" key={key}>
+            {key}
+          </span>
+        ))}
     </div>
   );
 
   Rows = ({ entries }) => (
     <>
       {entries.map(entry => (
-        <div className="row" key={entry._id}>
-          {Object.values(entry).map(cell => (
-            <span className="cell">{cell.toString()}</span>
-          ))}
+        <div className="table__row" key={entry._id}>
+          {Object.values(entry)
+            .slice(1, -1)
+            .map(cell => (
+              <span className="table__cell">{cell.toString()}</span>
+            ))}
           <button
             onClick={() => this.makeUntrusted(entry._id)}
-            className="cell"
+            className="table__cell"
           >
             {" "}
             Небезопасный платеж{" "}
@@ -135,14 +152,12 @@ class AdminPanel extends Component {
   );
 
   updateInputValue(evt) {
-    console.log(this.state);
     this.setState({
       [evt.target.id]: evt.target.value
     });
   }
 
   makeUntrusted(id) {
-    console.log("tset");
     fetch("/api/" + this.state.paymentMethod, {
       method: "PATCH",
       headers: {
