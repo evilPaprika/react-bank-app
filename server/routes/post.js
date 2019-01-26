@@ -56,19 +56,18 @@ const validationsRequestPayment = [
 
 function postHandlerTemplate(model) {
     return (req, res) => {
-        console.log(req.body);
+        // console.log(req.body);
         const payment = new model(
             Object.assign(req.body, {
                 _id: new mongoose.Types.ObjectId(),
                 trusted: true
             })
         );
-        console.log(validationResult(req).array());
+        // console.log(validationResult(req).array());
         new Promise((resolve, reject) => {
             validationResult(req).isEmpty()
                 ? resolve(payment.save())
                 : reject(new Error("Неверный формат данных"));
-            console.log(validationResult(req).isEmpty());
         })
             .then(result => {
                 res.status(201).json({
@@ -77,7 +76,7 @@ function postHandlerTemplate(model) {
                 });
             })
             .catch(err => {
-                res.status(500).json({
+                res.status(400).json({
                     error: err.message
                 });
             });
@@ -92,7 +91,9 @@ router.post(
 router.post(
     "/api/online-bank-payment",
     validationsOnlineBankPayment,
-    postHandlerTemplate(OnlineBankPayment)
+    (req, res) => {
+        postHandlerTemplate(OnlineBankPayment)(req, res);
+    }
 );
 router.post(
     "/api/request-payment",

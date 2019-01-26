@@ -13,6 +13,7 @@ app.use(function(req, res, next) {
 });
 app.use(require("./routes/post"));
 app.use(require("./routes/get"));
+app.use(require("./routes/patch"));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.listen(port, () => console.log(`Listening on port ${port}`));
 

@@ -32,7 +32,7 @@ function getAllPayments(req, res, model) {
             res.status(200).json(docs);
         })
         .catch(err => {
-            res.status(500).json({
+            res.status(400).json({
                 error: err
             });
         });
@@ -48,7 +48,7 @@ function getSortedPayments(req, res, model) {
             res.status(200).json(docs);
         })
         .catch(err => {
-            res.status(500).json({
+            res.status(400).json({
                 error: err
             });
         });
@@ -64,7 +64,7 @@ function getFindPayments(req, res, model) {
             res.status(200).json(docs);
         })
         .catch(err => {
-            res.status(500).json({
+            res.status(400).json({
                 error: err
             });
         });
