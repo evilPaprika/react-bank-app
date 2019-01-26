@@ -69,10 +69,13 @@ function postHandlerTemplate(model) {
                 : reject(new Error("Неверный формат данных"));
         })
             .then(result => {
-                res.status(201).json({
-                    message: "Запрос был сохранен, и принят в обработку",
-                    createdPayment: result
-                });
+                res.status(201).send(
+                    "Запрос был сохранен, и принят в обработку, спасибо."
+                );
+                // res.status(201).json({
+                //     message: "Запрос был сохранен, и принят в обработку, спасибо.",
+                //     createdPayment: result
+                // });
             })
             .catch(err => {
                 res.status(400).json({
