@@ -57,9 +57,6 @@ class ProductGallery extends Component {
 
   componentWillMount() {
     shuffle(this.state.products);
-  }
-
-  componentDidMount() {
     this.setState(userInfo);
   }
 

@@ -3,7 +3,7 @@ import userInfo from "../../index";
 import InputMask from "react-input-mask";
 
 class RequestPayment extends Component {
-  componentDidMount() {
+  componentWillMount() {
     this.setState(userInfo);
   }
 

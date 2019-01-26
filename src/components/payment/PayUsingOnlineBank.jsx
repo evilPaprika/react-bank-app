@@ -75,7 +75,7 @@ class PayUsingOnlineBank extends Component {
               required
             />
           </div>
-          <button type="submit">Заплатить</button>
+          <button type="submit">Получить файл для интернет-банка</button>
         </form>
       </div>
     );
